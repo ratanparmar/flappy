@@ -229,11 +229,13 @@ pipes = {
  */
 function onpress(evt) {
 
+console.log(currentstate);
 	switch (currentstate) {
 
 		// change state and update bird velocity
 		case states.Splash:
 			currentstate = states.Game;
+			//console.log("zero");
 			bird.jump();
 			break;
 
@@ -263,10 +265,10 @@ function onpress(evt) {
 function main() {
 	// create canvas and set width/height
 	canvas = document.createElement("canvas");
-
+	console.log("starts");
 	width = window.innerWidth;
 	height = window.innerHeight;
-
+	
 	var evt = "touchstart";
 	if (width >= 500) {
 		width  = 320;
@@ -286,6 +288,7 @@ function main() {
 	ctx = canvas.getContext("2d");
 
 	currentstate = states.Splash;
+	//console.log(states.Splash+"before");
 	// append canvas to document
 	document.body.appendChild(canvas);
 
